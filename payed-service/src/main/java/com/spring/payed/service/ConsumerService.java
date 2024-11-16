@@ -10,7 +10,7 @@ import java.util.Map;
 public class ConsumerService {
 
     @KafkaListener(topics = "${kafka.topic}")
-    public String consume(Message<Map<String, Integer>> order) {
-        return "Payed Success with " + order.getPayload();
+    public void consume(Message<String> order) {
+        System.out.println("Payed Success with " + order.getPayload());
     }
 }
